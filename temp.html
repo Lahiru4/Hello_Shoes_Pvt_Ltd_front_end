@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Wizard with Validation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <style>
+        .wizard-content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="wizard-content">
+    <form class="tab-wizard2 wizard-circle wizard">
+        <h5>Email Address</h5>
+        <section>
+            <div class="form-wrap max-width-600 mx-auto">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Email Address*</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Step 2 -->
+        <h5>Personal Information</h5>
+        <section>
+            <div class="form-wrap max-width-600 mx-auto">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Username*</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="username" name="username">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Step 3 -->
+        <h5>Password</h5>
+        <section>
+            <div class="form-wrap max-width-600 mx-auto">
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Password*</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Confirm Password*</label>
+                    <div class="col-sm-8">
+                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Step 4 -->
+        <h5>Overview Information</h5>
+        <section>
+            <div class="form-wrap max-width-600 mx-auto">
+                <ul class="register-info">
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-4 weight-600">Email Address</div>
+                            <div class="col-sm-8">example@abc.com</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-4 weight-600">Username</div>
+                            <div class="col-sm-8">Example</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-sm-4 weight-600">Password</div>
+                            <div class="col-sm-8">.....000</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $(".tab-wizard2").steps({
+            headerTag: "h5",
+            bodyTag: "section",
+            transitionEffect: "fade",
+            titleTemplate: '<span class="step">#index#</span> <span class="info">#title#</span>',
+            labels: {
+                finish: "Submit",
+                next: "Next",
+                previous: "Previous",
+            },
+            onStepChanging: function(event, currentIndex, newIndex) {
+                // Validate before allowing step change
+                var isValid = true;
+                if (currentIndex === 0) {
+                    var email = $("#email").val();
+                    isValid = validateEmail(email);
+                    if (!isValid) {
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Please enter a valid email address.',
+                            showHideTransition: 'fade',
+                            icon: 'error',
+                            position: 'top-right'
+                        });
+                    }
+                } else if (currentIndex === 1) {
+                    var username = $("#username").val();
+                    isValid = username.trim() !== "";
+                    if (!isValid) {
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Username cannot be empty.',
+                            showHideTransition: 'fade',
+                            icon: 'error',
+                            position: 'top-right'
+                        });
+                    }
+                } else if (currentIndex === 2) {
+                    var password = $("#password").val();
+                    var confirmPassword = $("#confirmPassword").val();
+                    isValid = password.trim() !== "" && password === confirmPassword;
+                    if (!isValid) {
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Passwords do not match or are empty.',
+                            showHideTransition: 'fade',
+                            icon: 'error',
+                            position: 'top-right'
+                        });
+                    }
+                }
+                return isValid;
+            },
+            onFinished: function(event, currentIndex) {
+                $('#success-modal-btn').trigger('click');
+            }
+        });
+
+        function validateEmail(email) {
+            var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailRegex.test(email);
+        }
+    });
+</script>
+</body>
+</html>
