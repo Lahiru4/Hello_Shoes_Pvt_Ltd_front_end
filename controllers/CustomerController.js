@@ -113,8 +113,6 @@ function loaderCustomerTableData() {
         success: function (data) {
             console.log(data);
             let tableBody = '';
-            const $tableBody = $('.table tbody');
-            $tableBody.empty();
 
             data.content.forEach((customer) => {
                 console.log(customer)
@@ -159,6 +157,7 @@ function loaderCustomerTableData() {
                            </tr>`;
 
                 // Append the row to the table body
+                $('#customerTable tbody').empty();
                 $('#customerTable tbody').append(row);
             })
 
