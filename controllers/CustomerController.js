@@ -69,12 +69,18 @@ function clearAll() {
     document.getElementById('customerId').value = '';
     document.getElementById('customerName').value = '';
     document.getElementById('customerEmail').value = '';
+/*
     document.getElementById('customerGender').value = '';
+*/
     document.getElementById('customerDob').value = '';
     document.getElementById('customerAddress').value = '';
     document.getElementById('customerCity').value = '';
+/*
     document.getElementById('customerProvince').value = '';
+*/
+/*
     document.getElementById('customerPostalCode').value = '';
+*/
 }
 
 function validate(customerId, customerName, customerEmail, customerGender, customerDob, customerAddress, customerCity, CustomerBuildingNo, customerLand) {
@@ -98,6 +104,8 @@ function validate(customerId, customerName, customerEmail, customerGender, custo
 }
 
 function loaderCustomerTableData() {
+    $('#customerTable tbody').empty();
+
     const accessToken = localStorage.getItem('accessToken');
 
     if (accessToken == null) {
@@ -112,7 +120,6 @@ function loaderCustomerTableData() {
         },
         success: function (data) {
             console.log(data);
-            let tableBody = '';
 
             data.content.forEach((customer) => {
                 console.log(customer)
@@ -129,7 +136,7 @@ function loaderCustomerTableData() {
                 let joinedDate = customer.joined_date;
                 let points = customer.points;
 
-                var row = `<tr class="table-plus">
+                var row = `<tr>
                             <td class="table-plus">${id}</td>
                             <td>${name}</td>
                             <td>${email}</td>
@@ -157,7 +164,6 @@ function loaderCustomerTableData() {
                            </tr>`;
 
                 // Append the row to the table body
-                $('#customerTable tbody').empty();
                 $('#customerTable tbody').append(row);
             })
 
@@ -212,9 +218,9 @@ $(document).ready(function () {
             $.ajax(settings).done(function (response) {
                 console.log(response.code);
                 if (response.code === "RSP_SUCCESS") {
+                    notify('success', 'Your file has been save.', 'Save!');
                     clearAll();
                     loaderCustomerTableData();
-                    notify('success', 'Your file has been save.', 'Save!');
                     $('#customerEmail').css("border-color", "#d4d4d4");
                     $('#customerId').css("border-color", "#d4d4d4");
                 } else if (response.code === "RSP_DUPLICATED") {
