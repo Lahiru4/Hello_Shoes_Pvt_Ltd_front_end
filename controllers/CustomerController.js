@@ -104,8 +104,6 @@ function validate(customerId, customerName, customerEmail, customerGender, custo
 }
 
 function loaderCustomerTableData() {
-    $('#customerTable tbody').empty();
-
     const accessToken = localStorage.getItem('accessToken');
 
     if (accessToken == null) {
@@ -119,8 +117,7 @@ function loaderCustomerTableData() {
             "Authorization": "Bearer " + accessToken
         },
         success: function (data) {
-            console.log(data);
-
+            $('#customerTable tbody').empty();
             data.content.forEach((customer) => {
                 console.log(customer)
                 let id = customer.customer_id;
@@ -175,7 +172,6 @@ function loaderCustomerTableData() {
 $(document).ready(function () {
     $('#customerRegisterButton').on('click', function () {
         const accessToken = localStorage.getItem('accessToken');
-
         if (accessToken == null) {
             window.location.href = "index.html";
         }
@@ -226,7 +222,7 @@ $(document).ready(function () {
                 } else if (response.code === "RSP_DUPLICATED") {
                     $('#customerId').css("border-color", "red");
                     notify('danger', 'Customer Id Already Exists ', 'Customer Id Duplicate');
-                } else if (response.code === "RSP_DUPLICATED_Email Already Exists") {
+                } else if (response.code === "RSP_DUPLICATEDEmailAlreadyExists") {
                     $('#customerEmail').css("border-color", "red");
                     notify('danger', 'Email Already Exists', 'Email Duplicate');
                 }
