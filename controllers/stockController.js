@@ -1,48 +1,87 @@
+let stockCount=0;
+document.addEventListener("DOMContentLoaded", function () {
+    const supplierSelect = document.querySelector("#shoesSuppler");
+    const accessToken = localStorage.getItem('accessToken');
 
-function loadItems() {
-    $.ajax({
-        method: "GET",
-        url: api_url+"stock/getAll/"+select_branch_Id,
-        async: true,
-        success: function (data) {
-            if (data.code === "00") {
-                $('#stock_table').empty();
-                for (let item of data.content) {
-                    console.log(item);
-                    let id = item.id;
-                    let itemName = item.itemName;
-                    let itemCost = item.itemCost;
-                    let itemPrice = item.itemPrice;
-                    let itemProfit = item.itemProfit;
-
-                    getImageStock(id, id + ".png");
-
-                    var row = `<tr id=${id}><td><img id=${"image" + id} src=${itemName} width="150px" height="150px" ></td><td>${itemName}</td><td>${itemCost}</td><td>${itemPrice}</td><td>${itemProfit}</td><td style="text-align: center;width: 90px"><i class="bi bi-pencil-fill fs-5" onclick="edit(this)"></i></td><td style="text-align: center;width: 90px"><i class="bi bi-trash-fill fs-5" onclick="deleteItem(this)"></i></td></tr>`;
-                    $('#stock_table').append(row);
-                }
+    fetch("http://localhost:8088/api/v1/supplier/getAll", {
+        headers: {
+            "Authorization": "Bearer " + accessToken
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            // Clear existing options except the default "Choose..." option
+            supplierSelect.innerHTML = '<option value="0" selected="">Choose...</option>';
+            console.log(data.content);
+            if (Array.isArray(data.content)) {
+                data.content.forEach(supplier => {
+                    const option = document.createElement("option");
+                    option.value = supplier.supplierCode;
+                    option.textContent = supplier.name;
+                    supplierSelect.appendChild(option);
+                });
+            } else {
+                console.error("Data is not an array:", data);
             }
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+        });
+});
+
+
+$(document).ready(function() {
+    $.ajax({
+        url: 'http://localhost:8088/api/v1/stock/countStock',
+        type: 'GET',
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem('accessToken')
         },
-        error: function (xhr, exception) {
-            alert("Error")
+        success: function(data) {
+            $('#itemsCode').val(data);
+            stockCount=data;
+
+        },
+        error: function(error) {
+            console.log(data.count);
+            //$('#stockCount').text('Error fetching stock count');
         }
     });
-}
-/*get image start*/
-const getImageStock = async (id, image) => {
-    try {
-        const fileName = image; // Replace with your image file name
-        console.log(fileName);
-        const response = await fetch(`${api_url}stock/fileSystem/${fileName}`);
-        if (response.ok) {
-            const blob = await response.blob();
-            const imageUrl = URL.createObjectURL(blob);
-            const imageElement = document.getElementById("image"+id);
-            imageElement.src = imageUrl;
-        } else {
-            console.error('Image download failed:', response.statusText);
-        }
-    } catch (error) {
-        console.error('Error fetching image:', error);
-    }
-};
-/*get image end*/
+
+    /*save stock*/
+    $("#addStockButton").click(function() {
+        const stockData = {
+            itemCode: $("#itemsCode").val(),
+            itemDescription: $("#itemsDescription").val(),
+            supplierCode: $("#shoesSuppler").val(),
+            itemBuyPrice: $("#itemsBuyPrice").val(),
+            itemSellingPrice: $("#itemsSellingPrice").val(),
+            gender: $("#shoesGender").val(),
+            occasion: $("#shoesOccasion").val(),
+            varieties: $("#shoesVerities").val(),
+            size: $("#shoesSize").val(),
+            qty: $("#itemsQty").val()
+        };
+
+        $.ajax({
+            url: "http://localhost:8088/api/v1/stock/save",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(stockData),
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem('accessToken')
+            },
+            success: function(response) {
+                alert("Stock added successfully!");
+                // Optionally, you can clear the form here
+                $('form')[0].reset();
+            },
+            error: function(error) {
+                console.error("Error adding stock:", error);
+                alert("Error adding stock. Please try again.");
+            }
+        });
+    });
+
+
+});

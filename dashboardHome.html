@@ -264,8 +264,6 @@
                     <ul class="submenu">
                         <li><a href="#">Available Stock</a></li>
                         <li><a href="#">Add New Stock</a></li>
-                        <li><a href="#">Out Of Stock</a></li>
-                        <li><a href="#">Stock Report</a></li>
                     </ul>
                 </li>
                 <br>
@@ -758,70 +756,171 @@
                     <br>
                     <br>
                     <br>
-                    <form>
-                        <div class="form-group ">
-                            <label>Select Item Type</label>
-                            <select class="custom-select col-12" id="item_type">
-                                <option value="0" selected="">Choose...</option>
-                                <option value="S">Shoe</option>
-                                <option value="SHMP">Shoe shampoo</option>
-                                <option value="POLB">Polish colors as Black</option>
-                                <option value="POLB">Polish colors as Black</option>
-                            </select>
-                        </div>
 
-                        <div class="form-group">
-                            <label>Item Code</label>
-                            <input class="form-control" type="text">
+                    <h5 class="h4 text-blue mb-20">Select Items Type</h5>
+                    <div class="tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active text-blue" data-toggle="tab" href="#home" role="tab"
+                                   aria-selected="true">Shoes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-blue" data-toggle="tab" href="#profile" role="tab"
+                                   aria-selected="false">Accessories</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel">
+                                <div class="pd-20">
+                                    <form>
+                                        <div class="form-group">
+                                            <label>Item Code</label>
+                                            <input class="form-control" type="text" disabled  id="itemsCode">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Item Description</label>
+                                            <input class="form-control" type="text" id="itemsDescription" placeholder="Description">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Select Suppler</label>
+                                            <select class="custom-select col-12" id="shoesSuppler">
+                                                <option value="0" selected="">Choose...</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Item Buy Price </label>
+                                            <input class="form-control" type="number" placeholder="00.00">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Item Selling Price </label>
+                                            <input class="form-control" type="number" placeholder="00.00">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Select Gender</label>
+                                            <select class="custom-select col-12" id="shoesGender">
+                                                <option value="0" selected="">Choose...</option>
+                                                <option value="Men">Men</option>
+                                                <option value="Women">Women</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Select Occasion</label>
+                                            <select class="custom-select col-12" id="shoesOccasion">
+                                                <option value="0" selected="">Choose...</option>
+                                                <option value="F">Formal</option>
+                                                <option value="C">Casual</option>
+                                                <option value="I">Industrial</option>
+                                                <option value="S">Sport</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Select Verities</label>
+                                            <select class="custom-select col-12" id="shoesVerities">
+                                                <option value="0" selected>Choose...</option>
+                                                <option value="H">Heel</option>
+                                                <option value="F">Flats</option>
+                                                <option value="W">Wedges</option>
+                                                <option value="FF">Flip Flops</option>
+                                                <option value="SD">Sandals</option>
+                                                <option value="S">Shoes</option>
+                                                <option value="SL">Slippers</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Select Size</label>
+                                            <select class="custom-select col-12" id="shoesSize">
+                                                <option value="0" selected>Choose...</option>
+                                                <option value="5">Size 5</option>
+                                                <option value="6">Size 6</option>
+                                                <option value="7">Size 7</option>
+                                                <option value="8">Size 8</option>
+                                                <option value="9">Size 9</option>
+                                                <option value="10">Size 10</option>
+                                                <option value="11">Size 11</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Qty </label>
+                                            <input class="form-control" type="number" placeholder="00">
+                                        </div>
+
+                                        <div class="" style="text-align: right;">
+                                            <button type="button" class="btn btn-primary" style="width: 150px" id="addStockButton">Add Stock</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel">
+                                <div class="pd-20">
+                                    <form>
+                                        <div class="form-group ">
+                                            <label>Select Item Type</label>
+                                            <select class="custom-select col-12" id="item_type">
+                                                <option value="0" selected="">Choose...</option>
+                                                <option value="S">Shoe</option>
+                                                <option value="SHMP">Shoe shampoo</option>
+                                                <option value="POLB">Polish colors as Black</option>
+                                                <option value="POLB">Polish colors as Black</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Item Code</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Item Description </label>
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Select Gender</label>
+                                            <select class="custom-select col-12" id="gender">
+                                                <option value="0" selected="">Choose...</option>
+                                                <option value="M">Mane</option>
+                                                <option value="W">Women</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Select Occasion</label>
+                                            <select class="custom-select col-12" id="occasion">
+                                                <option value="0" selected="">Choose...</option>
+                                                <option value="F">Formal</option>
+                                                <option value="C">Casual</option>
+                                                <option value="I">Industrial</option>
+                                                <option value="S">Sport</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label>Select Verities</label>
+                                            <select class="custom-select col-12" id="verities">
+                                                <option value="0" selected="">Choose...</option>
+                                                <option value="F">Formal</option>
+                                                <option value="C">Casual</option>
+                                                <option value="I">Industrial</option>
+                                                <option value="S">Sport</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Item Cost</label>
+                                            <input class="form-control" type="number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Item Sell Price</label>
+                                            <input class="form-control" type="number">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Item QTY</label>
+                                            <input class="form-control" type="number">
+                                        </div>
+                                        <div class="" style="text-align: right;">
+                                            <button type="button" class="btn btn-primary" style="width: 150px">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="form-group">
-                            <label>Item Description </label>
-                            <input class="form-control" type="text">
-                        </div>
-                        <div class="form-group ">
-                            <label>Select Gender</label>
-                            <select class="custom-select col-12" id="gender">
-                                <option value="0" selected="">Choose...</option>
-                                <option value="M">Mane</option>
-                                <option value="W">Women</option>
-                            </select>
-                        </div>
-                        <div class="form-group ">
-                            <label>Select Occasion</label>
-                            <select class="custom-select col-12" id="occasion">
-                                <option value="0" selected="">Choose...</option>
-                                <option value="F">Formal</option>
-                                <option value="C">Casual</option>
-                                <option value="I">Industrial</option>
-                                <option value="S">Sport</option>
-                            </select>
-                        </div>
-                        <div class="form-group ">
-                            <label>Select Verities</label>
-                            <select class="custom-select col-12" id="verities">
-                                <option value="0" selected="">Choose...</option>
-                                <option value="F">Formal</option>
-                                <option value="C">Casual</option>
-                                <option value="I">Industrial</option>
-                                <option value="S">Sport</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Item Cost</label>
-                            <input class="form-control" type="number">
-                        </div>
-                        <div class="form-group">
-                            <label>Item Sell Price</label>
-                            <input class="form-control" type="number">
-                        </div>
-                        <div class="form-group">
-                            <label>Item QTY</label>
-                            <input class="form-control" type="number">
-                        </div>
-                        <div class="" style="text-align: right;">
-                            <button type="button" class="btn btn-primary" style="width: 150px">Submit</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
 
@@ -1236,7 +1335,7 @@
                 <div class="pd-20 card-box mb-30">
                     <div class="clearfix mb-20">
                         <div class="pull-left">
-                            <h4 class="text-blue h4">Add New Suppliers</h4>
+                            <h4 class="text-blue h4">Add New Employee</h4>
                         </div>
                     </div>
                     <br>
@@ -1306,7 +1405,8 @@
                         </div>
                         <div class="form-group">
                             <label>Date of Brith Day </label>
-                            <input class="form-control date-picker" placeholder="Select Date" type="text" id="employeeDob">
+                            <input class="form-control date-picker" placeholder="Select Date" type="text"
+                                   id="employeeDob">
                         </div>
                         <div class="form-group ">
                             <label>Select Branch</label>
@@ -1405,6 +1505,7 @@
 <script type="module" src="controllers/CustomerController.js"></script>
 <script type="module" src="controllers/SuppliersController.js"></script>
 <script type="module" src="controllers/EmployeeController.js"></script>
+<script type="module" src="controllers/stockController.js"></script>
 
 <script>
     function edit(id) {

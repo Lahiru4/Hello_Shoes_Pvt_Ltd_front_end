@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const row = document.createElement("tr");
                         row.innerHTML = `
                             <td class="table-plus"><img src="${employee.profilePicture}" alt="Profile Pic" style="width: 60px; height: 60px; border-radius: 50%;"></td>
-                            <td>${employee.employeeCode}</td>
+                            <td class="table-plus">${employee.employeeCode}</td>
                             <td>${employee.name}</td>
                             <td>${employee.gender}</td>
                             <td>${employee.civilStatus}</td>
