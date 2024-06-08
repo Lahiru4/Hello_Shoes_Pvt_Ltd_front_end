@@ -588,122 +588,66 @@
             <!--page header end-->
 
             <!--  Datatable start -->
-            <div class="card-box mb-30">
-                <div class="pd-20">
-                </div>
-                <div class="table-responsive">
-                    <table class="table hover multiple-select-row data-table-export nowrap">
-                        <thead>
-                        <tr>
-                            <th class="table-plus datatable-nosort">Name</th>
-                            <th>Age</th>
-                            <th>Office</th>
-                            <th>Address</th>
-                            <th>Start Date</th>
-                            <th>Salart</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="table-plus">Gloria F. Mead</td>
-                            <td>25</td>
-                            <td>Sagittarius</td>
-                            <td>2829 Trainer Avenue Peoria, IL 61602</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>30</td>
-                            <td>Gemini</td>
-                            <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>20</td>
-                            <td>Gemini</td>
-                            <td>2829 Trainer Avenue Peoria, IL 61602</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>30</td>
-                            <td>Sagittarius</td>
-                            <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>25</td>
-                            <td>Gemini</td>
-                            <td>2829 Trainer Avenue Peoria, IL 61602</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>20</td>
-                            <td>Sagittarius</td>
-                            <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>18</td>
-                            <td>Gemini</td>
-                            <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>30</td>
-                            <td>Sagittarius</td>
-                            <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>30</td>
-                            <td>Sagittarius</td>
-                            <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>30</td>
-                            <td>Gemini</td>
-                            <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>30</td>
-                            <td>Gemini</td>
-                            <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        <tr>
-                            <td class="table-plus">Andrea J. Cagle</td>
-                            <td>30</td>
-                            <td>Gemini</td>
-                            <td>1280 Prospect Valley Road Long Beach, CA 90802</td>
-                            <td>29-03-2018</td>
-                            <td>$162,700</td>
-                        </tr>
-                        </tbody>
-                    </table>
+
+            <div class="pd-20 card-box mb-30">
+                <h5 class="h4 text-blue mb-20">Select Items Type</h5>
+                <div class="tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active text-blue" data-toggle="tab" href="#home1" role="tab"
+                               aria-selected="true">Shoes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-blue" data-toggle="tab" href="#profile1" role="tab"
+                               aria-selected="false">Accessories</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="home1" role="tabpanel">
+                            <div class="pd-20">
+                                <div class="table-responsive">
+                                    <table class="table hover multiple-select-row data-table-export nowrap" id="itemTable">
+                                        <thead>
+                                        <tr>
+                                            <th class="table-plus datatable-nosort">Image</th>
+                                            <th class="table-plus datatable-nosort">Description</th>
+                                            <th>Suppler</th>
+                                            <th>Buy Price</th>
+                                            <th>Selling Price</th>
+                                            <th>Gender</th>
+                                            <th>Occasion</th>
+                                            <th>Verities</th>
+                                            <th>Size</th>
+                                            <th>Qty</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><img src="image/logo.png" alt="" width="100"></td>
+                                            <td>Gloria F. Mead</td>
+                                            <td>25</td>
+                                            <td>Sagittarius</td>
+                                            <td>2829 Trainer Avenue Peoria, IL 61602</td>
+                                            <td>29-03-2018</td>
+                                            <td>$162,700</td>
+                                            <td>$162,700</td>
+                                            <td>$162,700</td>
+                                            <td>$162,700</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show active" id="profile1" role="tabpanel">
+                            <div class="pd-20">
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
             <!--  Datatable End -->
 
         </div>
@@ -747,16 +691,16 @@
                         </div>
                     </div>
                     <!-- image start-->
-                    <form class="dropzone" action="#" id="my-awesome-dropzone">
-                        <div class="fallback">
-                            <input type="file" name="file"/>
-                        </div>
-                    </form>
+                    <div style="text-align: center">
+                        <img src="image/logo.png" alt="ItemImage" width="250px" id="itemImageBox">
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="itemImageInput">
+                        <label class="custom-file-label">Choose file</label>
+                    </div>
                     <!--  image end-->
                     <br>
                     <br>
-                    <br>
-
                     <h5 class="h4 text-blue mb-20">Select Items Type</h5>
                     <div class="tab">
                         <ul class="nav nav-tabs" role="tablist">
@@ -775,11 +719,12 @@
                                     <form>
                                         <div class="form-group">
                                             <label>Item Code</label>
-                                            <input class="form-control" type="text" disabled  id="itemsCode">
+                                            <input class="form-control" type="text" disabled id="itemsCode">
                                         </div>
                                         <div class="form-group">
                                             <label>Item Description</label>
-                                            <input class="form-control" type="text" id="itemsDescription" placeholder="Description">
+                                            <input class="form-control" type="text" id="itemsDescription"
+                                                   placeholder="Description">
                                         </div>
                                         <div class="form-group ">
                                             <label>Select Suppler</label>
@@ -789,11 +734,13 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Item Buy Price </label>
-                                            <input class="form-control" type="number" placeholder="00.00">
+                                            <input class="form-control" type="number" placeholder="00.00"
+                                                   id="itemsBuyPrice">
                                         </div>
                                         <div class="form-group">
                                             <label>Item Selling Price </label>
-                                            <input class="form-control" type="number" placeholder="00.00">
+                                            <input class="form-control" type="number" placeholder="00.00"
+                                                   id="itemsSellingPrice">
                                         </div>
                                         <div class="form-group">
                                             <label>Select Gender</label>
@@ -807,23 +754,23 @@
                                             <label>Select Occasion</label>
                                             <select class="custom-select col-12" id="shoesOccasion">
                                                 <option value="0" selected="">Choose...</option>
-                                                <option value="F">Formal</option>
-                                                <option value="C">Casual</option>
-                                                <option value="I">Industrial</option>
-                                                <option value="S">Sport</option>
+                                                <option value="Formal">Formal</option>
+                                                <option value="Casual">Casual</option>
+                                                <option value="Industrial">Industrial</option>
+                                                <option value="Sport">Sport</option>
                                             </select>
                                         </div>
                                         <div class="form-group ">
                                             <label>Select Verities</label>
                                             <select class="custom-select col-12" id="shoesVerities">
                                                 <option value="0" selected>Choose...</option>
-                                                <option value="H">Heel</option>
-                                                <option value="F">Flats</option>
-                                                <option value="W">Wedges</option>
-                                                <option value="FF">Flip Flops</option>
-                                                <option value="SD">Sandals</option>
-                                                <option value="S">Shoes</option>
-                                                <option value="SL">Slippers</option>
+                                                <option value="Heel">Heel</option>
+                                                <option value="Flats">Flats</option>
+                                                <option value="Wedges">Wedges</option>
+                                                <option value="Flip Flops">Flip Flops</option>
+                                                <option value="Sandals">Sandals</option>
+                                                <option value="Shoes">Shoes</option>
+                                                <option value="Slippers">Slippers</option>
                                             </select>
                                         </div>
                                         <div class="form-group ">
@@ -841,11 +788,13 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Qty </label>
-                                            <input class="form-control" type="number" placeholder="00">
+                                            <input class="form-control" type="number" placeholder="00" id="itemsQty">
                                         </div>
 
                                         <div class="" style="text-align: right;">
-                                            <button type="button" class="btn btn-primary" style="width: 150px" id="addStockButton">Add Stock</button>
+                                            <button type="button" class="btn btn-primary" style="width: 150px"
+                                                    id="addStockButton">Add Item
+                                            </button>
                                         </div>
                                     </form>
                                 </div>
@@ -853,46 +802,24 @@
                             <div class="tab-pane fade" id="profile" role="tabpanel">
                                 <div class="pd-20">
                                     <form>
-                                        <div class="form-group ">
-                                            <label>Select Item Type</label>
-                                            <select class="custom-select col-12" id="item_type">
-                                                <option value="0" selected="">Choose...</option>
-                                                <option value="S">Shoe</option>
-                                                <option value="SHMP">Shoe shampoo</option>
-                                                <option value="POLB">Polish colors as Black</option>
-                                                <option value="POLB">Polish colors as Black</option>
-                                            </select>
-                                        </div>
-
                                         <div class="form-group">
                                             <label>Item Code</label>
-                                            <input class="form-control" type="text">
+                                            <input class="form-control" type="text" disabled id="AccessoriesitemsCode">
                                         </div>
                                         <div class="form-group">
-                                            <label>Item Description </label>
-                                            <input class="form-control" type="text">
+                                            <label>Item Description</label>
+                                            <input class="form-control" type="text" id="AccessoriesitemsDescription"
+                                                   placeholder="Description">
                                         </div>
                                         <div class="form-group ">
-                                            <label>Select Gender</label>
-                                            <select class="custom-select col-12" id="gender">
+                                            <label>Select Suppler</label>
+                                            <select class="custom-select col-12" id="accessoriesshoesSuppler">
                                                 <option value="0" selected="">Choose...</option>
-                                                <option value="M">Mane</option>
-                                                <option value="W">Women</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label>Select Occasion</label>
-                                            <select class="custom-select col-12" id="occasion">
-                                                <option value="0" selected="">Choose...</option>
-                                                <option value="F">Formal</option>
-                                                <option value="C">Casual</option>
-                                                <option value="I">Industrial</option>
-                                                <option value="S">Sport</option>
                                             </select>
                                         </div>
                                         <div class="form-group ">
                                             <label>Select Verities</label>
-                                            <select class="custom-select col-12" id="verities">
+                                            <select class="custom-select col-12" id="Accessoriesverities">
                                                 <option value="0" selected="">Choose...</option>
                                                 <option value="F">Formal</option>
                                                 <option value="C">Casual</option>
@@ -902,18 +829,19 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Item Cost</label>
-                                            <input class="form-control" type="number">
+                                            <input class="form-control" type="number" id="AccessorieItemBye">
                                         </div>
                                         <div class="form-group">
                                             <label>Item Sell Price</label>
-                                            <input class="form-control" type="number">
+                                            <input class="form-control" type="number" id="AccessorieItemSell">
                                         </div>
                                         <div class="form-group">
                                             <label>Item QTY</label>
-                                            <input class="form-control" type="number">
+                                            <input class="form-control" type="number" id="AccessorieItemCostQty">
                                         </div>
                                         <div class="" style="text-align: right;">
-                                            <button type="button" class="btn btn-primary" style="width: 150px">Submit</button>
+                                            <button type="button" class="btn btn-primary" style="width: 150px" id="addStockButtonAccessories">Add Accessories
+                                            </button>
                                         </div>
                                     </form>
                                 </div>

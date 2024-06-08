@@ -17,7 +17,8 @@ $('#employeeProfileInput').on('change', function () {
         };
         reader.readAsDataURL(fileInput.files[0]);
     }
-});function toBase64(file) {
+});
+function toBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
